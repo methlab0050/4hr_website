@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  height: 100%;
+  margin: 1rem;
+}
+
+.parallax-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  /* flex-direction: row; */
+}
+
+.pizza-1, .pizza-2, .pizza-3 {
+  background-attachment: fixed;
+  /* background-position: center; */
+  background-position: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.pizza-1 { background-image: url("../pizza/pizza.jpg"); }
+.pizza-2 { background-image: url("../pizza/pizza2.jpg"); }
+.pizza-3 { background-image: url("../pizza/pizza3.jpg"); }
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+  .pizza-1, .pizza-2, .pizza-3 {
+    background-attachment: scroll;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="parallax-container">
+    <span class="talk">I like pizza</span>
+    <div class="pizza-1"></div>
+</div>
+
+
+
+<div class="parallax-container">
+    <span>I like pizza from pizza hut</span>
+    <div class="pizza-2"></div>
+</div>
+
+<div class="parallax-container">
+    <span>These pizzas are not from pizza hut</span>
+    <div class="pizza-3"></div>
+</div>
+
+<div class="parallax-container">
+    <span>They do look good though</span>
+    <div class="pizza-1"></div>
+</div>
+
+</body>
+</html>

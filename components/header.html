@@ -1,0 +1,95 @@
+<style>
+body {
+  display: grid;
+  overflow: hidden;
+  place-items: center;
+  height: 25vh;
+  background-color: black;
+  margin: 0rem;
+}
+
+a {
+  text-decoration: none;
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(1.5rem, 2.5vw, 4rem);
+  color: white;
+  display: inline-block;
+  margin: 1rem 1rem;
+  padding: 1rem 1rem;
+  vertical-align: middle;
+  /* padding: 0rem clamp(1rem, 2vw, 3rem); */
+  border-radius: clamp(0.4rem, 0.75vw, 1rem);
+  /* transition: color 3s; */
+  /* transition: background-color 3s; */
+}
+
+span {
+  background-color: white;
+  color: black;
+  margin: 1rem 1rem;
+  padding: 1rem 1rem;
+  vertical-align: middle;
+  border-radius: clamp(0.4rem, 0.75vw, 1rem);
+}
+
+.code-text:hover {
+  background-color: white;
+  color: black;
+}
+
+.title {
+  border-color: white;
+  padding: 1rem 1rem;
+  border-radius: clamp(0.4rem, 0.75vw, 1rem);
+}
+
+nav {
+  border: 1px solid black;
+  margin: 1rem;
+  padding: 2rem 2rem;
+  text-align: center;
+}
+
+</style>
+
+
+<nav>
+  <a target="_parent" href="../Home.html" class="code-text" data-value="HOME">HOME</a>
+  <a target="_parent" href="../Hobbies.html" class="code-text" data-value="HOBBIES">HOBBIES</a>
+  <a target="_parent" href="../Home.html" class="title">ZEHAAN<span>WALJI</span></a>
+  <a target="_parent" href="../School.html" class="code-text" data-value="SCHOOL">SCHOOL</a>
+  <a target="_parent" href="./other.html" class="code-text" data-value="OTHER">OTHER</a>
+</nav>
+
+<script>
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  
+  let layz = event => {  
+  let iteration = 0;
+    
+  let interval = setInterval(() => {
+    event.target.innerText = event.target.innerText
+      .split("")
+      .map((letter, index) => {
+        if(index < iteration) {
+          return event.target.dataset.value[index];
+        }
+      
+        return letters[Math.floor(Math.random() * 26)]
+      })
+      .join("");
+    
+    if(iteration >= event.target.dataset.value.length){ 
+      clearInterval(interval);
+    }
+    
+    iteration += 1 / 10;
+  }, 30);
+}
+
+document.querySelectorAll(".code-text").forEach((elm) => {
+  elm.onmouseover = layz
+})
+
+</script>
